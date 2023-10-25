@@ -21,19 +21,19 @@ function App() {
 
   const handleUrlChange = (newUrl: string) => setUrl(newUrl)
 
-  const handleDownload = () => {
-    fetch(url)
-      .then(response => response.blob())
-      .then(blob => {
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'test.pdf';
-        a.click();
-        window.URL.revokeObjectURL(url);
-      })
-      .catch(error => console.error('Download error:', error));
-  };
+  // const handleDownload = () => {
+  //   fetch(url)
+  //     .then(response => response.blob())
+  //     .then(blob => {
+  //       const url = window.URL.createObjectURL(blob);
+  //       const a = document.createElement('a');
+  //       a.href = url;
+  //       a.download = 'test.pdf';
+  //       a.click();
+  //       window.URL.revokeObjectURL(url);
+  //     })
+  //     .catch(error => console.error('Download error:', error));
+  // };
 
   const download = () => {
     const {url, contentType, token, filename} = obj
