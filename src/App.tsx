@@ -122,10 +122,10 @@ function App() {
           value={url}
           onChange={(e) => handleUrlChange(e.target.value)}
         />
-{/*       </div>
-      <button type="button" onClick={handleDownload}>
+      </div>
+{/*       <button type="button" onClick={handleDownload}>
         Download
-      </button> */}
+      </button>  */}
     </form>
       <a href={url} download>Download</a>
     </>
