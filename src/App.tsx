@@ -21,6 +21,13 @@ function App() {
 
   const handleUrlChange = (newUrl: string) => setUrl(newUrl)
 
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'test.pdf';
+    link.click();
+  };
+
   const download = () => {
     const {url, contentType, token, filename} = obj
     fetch(url, {
@@ -109,9 +116,9 @@ function App() {
           onChange={(e) => handleUrlChange(e.target.value)}
         />
       </div>
-      <a href={url} download="test.pdf">
-        <button type="button">Unduh</button>
-      </a>
+      <button type="button" onClick={handleDownload}>
+        Download
+      </button>
     </form>
     </>
   );
