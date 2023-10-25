@@ -9,6 +9,8 @@ function App() {
     filename: ''
   })
 
+  const [url, setUrl] = useState('')
+
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setObj({
@@ -16,6 +18,8 @@ function App() {
       [name]: value,
     });
   };
+
+  const handleUrlChange = (newUrl: string) => setUrl(newUrl)
 
   const download = () => {
     const {url, contentType, token, filename} = obj
@@ -51,7 +55,8 @@ function App() {
   }
 
   return (
-    <form>
+    <>
+      <form>
       <div>
         <label>URL:</label>
         <input
@@ -92,6 +97,23 @@ function App() {
         Download
       </button>
     </form>
+
+    <br/>
+    <form>
+    <div>
+        <label>Url:</label>
+        <input
+          type="text"
+          name="url"
+          value={url}
+          onChange={(e) => handleUrlChange(e.target.value)}
+        />
+      </div>
+      <a href={url} download="test.pdf">
+        <button>Unduh</button>
+      </a>
+    </form>
+    </>
   );
 }
 
