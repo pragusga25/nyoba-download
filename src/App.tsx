@@ -110,7 +110,7 @@ function App() {
         />
       </div>
       <a href={url} download="test.pdf">
-        <button>Unduh</button>
+        <button type="button">Unduh</button>
       </a>
     </form>
     </>
